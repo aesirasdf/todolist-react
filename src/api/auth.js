@@ -24,3 +24,15 @@ export const login = async (body) => {
 
     return await f.json()
 }
+
+export const checkToken = async (token) => {
+    const f = await fetch(`${URL}/user`, {
+        method: "GET",
+        headers: {
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`
+        },
+    })
+
+    return await f.json()
+}
